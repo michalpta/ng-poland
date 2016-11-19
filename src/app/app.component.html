@@ -1,7 +1,22 @@
 <div class="container">
   <h1>
-    <img src="assets/angular.png" alt="Angular Logotype" style="width: 64px;">
+    <a routerLink="" title="Home"><img src="assets/angular.png" alt="Angular Logotype" style="width: 64px;"></a>
     ngPoland App
   </h1>
-  <p>ngPoland 2016</p>
+  <ul class="nav nav-pills">
+    <li routerLink="home" routerLinkActive="active">
+      <a routerLink="home" title="Home">Home</a>
+    </li>
+    <li routerLink="team" routerLinkActive="active">
+      <a routerLink="team" title="Team">Team</a>
+    </li>
+  </ul>
+  <hr />
+  <div class="router-outlet">
+    <router-outlet></router-outlet>
+  </div>
+  <footer>
+    <hr />
+    ngPoland 2016
+  </footer>
 </div>
