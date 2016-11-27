@@ -9,7 +9,7 @@ import { Buddy } from './buddy';
 })
 export class BuddyComponent implements OnInit {
 
-  @Input() buddy: Buddy;
+  @Input() buddy: Buddy = { name: 'Default Buddy', description: 'Description of Default Buddy' };
 
   constructor() { }
 

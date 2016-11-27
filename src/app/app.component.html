@@ -12,6 +12,13 @@
     </li>
   </ul>
   <hr />
+  <ul class="breadcrumb">
+    <li *ngFor="let segment of breadcrumbs">
+      <a [routerLink]="segment.path">
+        {{segment.name}}
+      </a>
+    </li>
+  </ul>
   <div class="router-outlet">
     <router-outlet></router-outlet>
   </div>

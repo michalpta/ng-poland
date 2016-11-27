@@ -9,13 +9,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TeamComponent } from './team/team.component';
 import { BuddyComponent } from './team/buddy/buddy.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'team', component: TeamComponent },
+  { path: 'team/buddy', component: BuddyComponent },
 
-  { path: '', component: HomeComponent }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
@@ -23,7 +27,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     TeamComponent,
-    BuddyComponent
+    BuddyComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
