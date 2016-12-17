@@ -2,6 +2,6 @@
 <p>
   team works!
 </p>
-<div *ngFor="let buddy of teamMembers" class="well well-sm">
+<div *ngFor="let buddy of (teamMembers | async)" class="well well-sm">
 <app-buddy [buddy]="buddy"></app-buddy>
 </div>

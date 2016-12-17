@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
   selector: 'app-team',
@@ -7,16 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamComponent implements OnInit {
 
-  teamMembers: any[] = [
-    { name: 'Michal Ptaszek', description: 'Development Lead' },
-    { name: 'Przemyslaw Zapala', description: 'Development Lead' },
-    { name: 'Marcin Marczak', description: 'Developer' },
-    { name: 'Piotr Przykaza', description: 'Developer' }
-  ]
+  teamMembers: FirebaseListObservable<any[]>
 
-  constructor() { }
+  constructor(private af: AngularFire) { }
 
   ngOnInit() {
+    this.teamMembers = this.af.database.list('/teamMembers');
   }
 
 }
