@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 import { Buddy } from './buddy';
 
@@ -9,11 +10,24 @@ import { Buddy } from './buddy';
 })
 export class BuddyComponent implements OnInit {
 
-  @Input() buddy: Buddy = { name: 'Default Buddy', description: 'Description of Default Buddy' };
+  @Input() buddy: Buddy = new Buddy();
+  @Input() teamMembers: FirebaseListObservable<any[]>
+
+  @Input() createMode: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  saveBuddy() {
+    console.log(this.buddy)
+    if (this.createMode) {
+      this.teamMembers.push(this.buddy);
+    }
+    else {
+      this.teamMembers.update(this.buddy.$key, { name: this.buddy.name });
+    }
   }
 
 }

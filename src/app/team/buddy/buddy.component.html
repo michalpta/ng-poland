@@ -2,6 +2,9 @@
   <div class="buddy-thumbnail thumbnail pull-left">
     <img src="assets/angular.png" />
   </div>
-  <h4><a [routerLink]="['/team/buddy']">{{buddy.name}}</a></h4>
-  <p>{{buddy.description}}</p>
+  <h4>{{buddy.name}}</h4>
+  <p>
+    <label>Name</label> <input type="text" [(ngModel)]="buddy.name" />
+  </p>
+  <a class="btn btn-primary" (click)="saveBuddy($event)">Save</a>
 </div>
