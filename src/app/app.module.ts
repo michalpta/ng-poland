@@ -11,6 +11,7 @@ import { TeamComponent } from './team/team.component';
 import { BuddyComponent } from './team/buddy/buddy.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import { AngularFireModule } from 'angularfire2';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +22,14 @@ const appRoutes: Routes = [
 
   { path: '**', component: NotFoundComponent }
 ];
+
+var firebaseConfig = {
+    apiKey: "AIzaSyDp2L5Y6HwLBMOdOs4HZOwvVWj4X7fwmaI",
+    authDomain: "ngpoland-b5bd7.firebaseapp.com",
+    databaseURL: "https://ngpoland-b5bd7.firebaseio.com",
+    storageBucket: "ngpoland-b5bd7.appspot.com",
+    messagingSenderId: "207681377222"
+};
 
 @NgModule({
   declarations: [
@@ -34,7 +43,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
